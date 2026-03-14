@@ -24,6 +24,10 @@ public class PatientTest {
         System.out.println(patientList);
 
         Patient p1=new Patient();
+        p1.setName("Ravi");
+        p1.setEmail("ravi@gmail.com");
+        p1.setGender("Male");
+
         patientRepository.save(p1);
     }
     @Test

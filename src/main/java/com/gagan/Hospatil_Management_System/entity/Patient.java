@@ -1,5 +1,6 @@
 package com.gagan.Hospatil_Management_System.entity;
 
+import com.gagan.Hospatil_Management_System.entity.type.BloodGroupType;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
@@ -14,7 +15,7 @@ import java.time.LocalDateTime;
 @Getter
 @Setter
 @Table(
-        name = "patient_tlb",
+        name = "patient",
         uniqueConstraints = {
                 @UniqueConstraint(name="unique_patient_email",columnNames = {"email"}),
                 @UniqueConstraint(name = "unique_patient_name_birthdate",columnNames = {"name","birthdate"})
@@ -28,7 +29,7 @@ public class Patient {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(name = "patient_name",nullable = false,length = 40)
+    @Column(nullable = false,length = 40)
     private String name;
 
     @ToString.Exclude
@@ -42,4 +43,7 @@ public class Patient {
     @CreationTimestamp
     @Column(updatable = false)
     private LocalDateTime createAt;
+
+    @Enumerated(EnumType.STRING)
+    private BloodGroupType blood_group;
 }
