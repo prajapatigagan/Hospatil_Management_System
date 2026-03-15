@@ -32,7 +32,7 @@ public class Patient {
     @Column(nullable = false,length = 40)
     private String name;
 
-    @ToString.Exclude
+//    @ToString.Exclude
     private LocalDate birthdate;
 
     @Column(unique = true,nullable = false)

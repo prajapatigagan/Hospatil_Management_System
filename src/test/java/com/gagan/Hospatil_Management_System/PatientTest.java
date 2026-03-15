@@ -2,6 +2,7 @@ package com.gagan.Hospatil_Management_System;
 
 import com.gagan.Hospatil_Management_System.Services.PatientServices;
 import com.gagan.Hospatil_Management_System.entity.Patient;
+import com.gagan.Hospatil_Management_System.entity.type.BloodGroupType;
 import com.gagan.Hospatil_Management_System.repository.PatientRepository;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -35,9 +36,13 @@ public class PatientTest {
     public void testTransactionMethods(){
 //        Patient patient=patientServices.getPatientById(1L);
 //        Patient patient=patientRepository.findByName("Anita");
-        List<Patient> patientList= (List<Patient>) patientRepository.findByBirthDateOrEmail(LocalDate.of(1998,8,21),"anita@gmail.com");
-        for(Patient patient:patientList) {
-            System.out.println(patientList);
+//        List<Patient> patientList = patientRepository
+//                .findByBirthdateOrEmail(LocalDate.of(1998,8,21),"anita@gmail.com");
+
+        List<Patient> patientList=patientRepository.findByBloodGroup(BloodGroupType.A_POSITIVE);
+        System.out.println(patientList.size());
+        for(Patient patient : patientList){
+            System.out.println(patient);
         }
     }
 }
