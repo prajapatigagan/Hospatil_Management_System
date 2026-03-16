@@ -1,6 +1,7 @@
 package com.gagan.Hospatil_Management_System;
 
 import com.gagan.Hospatil_Management_System.Services.PatientServices;
+import com.gagan.Hospatil_Management_System.dto.BloodGroupCountResponceEntity;
 import com.gagan.Hospatil_Management_System.entity.Patient;
 import com.gagan.Hospatil_Management_System.entity.type.BloodGroupType;
 import com.gagan.Hospatil_Management_System.repository.PatientRepository;
@@ -45,14 +46,24 @@ public class PatientTest {
 //        List<Patient> patientList=patientRepository.findByBornAfterDate(LocalDate.of(1985,8,28));
 //        System.out.println(patientList.size());
 
-        List<Patient> patientList=patientRepository.findAllPatients();
-        for(Patient patient : patientList){
-            System.out.println(patient);
-        }
+//        List<Patient> patientList=patientRepository.findAllPatients();
+//        for(Patient patient : patientList){
+//            System.out.println(patient);
+//        }
+//
+//        List<Object[]> bloodGroupList = patientRepository.countEachBloodGroupType();
+//        for(Object[] object : bloodGroupList){
+//            System.out.println(object[0] + " " + object[1]);
+//        }
 
-        List<Object[]> bloodGroupList = patientRepository.countEachBloodGroupType();
-        for(Object[] object : bloodGroupList){
-            System.out.println(object[0] + " " + object[1]);
+//        List<BloodGroupCountResponceEntity> bloodGroupList = patientRepository.countEachBloodGroupType();
+//        for(BloodGroupCountResponceEntity BloodGroupCountResponce: bloodGroupList){
+//            System.out.println(BloodGroupCountResponce);
+//        }
+        List<BloodGroupCountResponceEntity> bloodGroupList = patientRepository.countEachBloodGroupType();
+
+        for (BloodGroupCountResponceEntity bloodGroupResponse : bloodGroupList) {
+            System.out.println(bloodGroupResponse);
         }
     }
 }
