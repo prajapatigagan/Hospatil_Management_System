@@ -14,20 +14,22 @@ import java.util.Set;
 @Getter
 @NoArgsConstructor
 @AllArgsConstructor
-public class Doctor {
+public class Department {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(nullable = false,length = 100)
+    @Column(nullable = false,unique = true,length = 100)
     private String name;
 
-    @Column(length = 100)
-    private String specialization;
+    @OneToOne
+    private Doctor headDoctor;
 
-    @Column(nullable = false,unique = true,length = 100)
-    private String email;
-
-    @ManyToMany(mappedBy = "doctors")
-    private Set<Department> departments=new HashSet<>();
+    @ManyToMany
+    @JoinTable(
+            name = "my_dpt_doctors",
+            joinColumns =@JoinColumn(name = "dpt_id"),
+            inverseJoinColumns = @JoinColumn(name="doctor_id")
+    )
+    private Set<Doctor> doctors=new HashSet<>();
 }
