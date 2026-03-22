@@ -4,3 +4,9 @@ VALUES
 ('Rahul','M','1992-05-10','rahul@gmail.com','B_POSITIVE'),
 ('Anita','F','1995-08-21','anita@gmail.com','A_POSITIVE'),
 ('Riya','F','1998-02-15','riya@gmail.com','O_NEGATIVE');
+
+INSERT INTO doctor(name,specialization,email)
+VALUES
+('Dr.Rakesh Mehta','Cardiology','rakesh.mehta@Example.com')
+('Dr.Sneha Kapoor','Dermatology','Sneha.Kapoor@Example.com')
+('Dr.Arrjun Nail','orthopedics','arjun.nail@Example.com')

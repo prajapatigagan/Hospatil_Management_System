@@ -1,5 +1,6 @@
 package com.gagan.Hospatil_Management_System;
 
+import com.gagan.Hospatil_Management_System.Services.AppoinmentService;
 import com.gagan.Hospatil_Management_System.Services.InsuranceService;
 import com.gagan.Hospatil_Management_System.entity.Insurance;
 import com.gagan.Hospatil_Management_System.entity.Patient;
@@ -16,10 +17,13 @@ public class InsuranceTest {
     @Autowired
     private InsuranceService insuranceService;
 
+    @Autowired
+    private AppoinmentService appoinmentService;
+
     @Test
     public void testInsurance(){
         Insurance insurance=Insurance.builder()
-                .policyNumber("HDFC_1234")
+                .policyNumber("HDFC_12345")
                 .provider("HDFC")
                 .velidUntil(LocalDate.of(2025,11,12))
                 .build();

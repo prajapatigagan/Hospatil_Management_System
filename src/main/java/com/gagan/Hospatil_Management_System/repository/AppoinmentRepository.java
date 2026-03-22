@@ -1,7 +1,9 @@
 package com.gagan.Hospatil_Management_System.repository;
 
 import com.gagan.Hospatil_Management_System.entity.Appoinment;
-import org.springframework.data.repository.Repository;
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
 
-public interface AppoinmentRepository extends Repository<Appoinment, Long> {
+@Repository
+public interface AppoinmentRepository extends JpaRepository<Appoinment, Long> {
 }
